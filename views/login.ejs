@@ -8,6 +8,61 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Login Page</h1>
+    <section class="vh-50">
+      <div class="px-4 py-5  px-md-5 vh-100 overflow-auto bg">
+        <div class="container py-5">
+          <div class="row gx-lg-5"></div>
+            <div class="centered">
+              <div class="card">
+                <div class="card-body shadow py-5 px-md-5">
+                  <h1 class="text-center text-primary fw-bolder">Hello Again!</h1>
+                  <hr>
+                  <p>Log into your account and get a ton access of references</p>
+                  <form>
+                    <!--Email input -->
+                    <div class="form-group">
+                      <label class="fw-bold form-label" for="form3Example3">Email address</label>
+                      <input type="email" id="email" class="form-control" placeholder="Input Email Address" />
+                    </div>
+
+                    <!-- Password input  -->
+                    <div class="form-group">
+                      <label class="fw-bold form-label" for="form3Example4">Password</label>
+                      <input type="password" id="password" class="form-control" placeholder="Input password"/>
+                    </div> 
+                      
+    
+                    <!-- Checkbox -->
+                    <div class="form-check d-flex justify-content-left mb-4">
+                      <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
+                      <label class="form-check-label" for="form2Example33">
+                        Remember Me
+                      </label>
+                    </div>
+    
+                    <!-- Submit button -->
+                  <div class="d-grid gap-5 col-5 mx-auto">
+                    <button type="button" class="justify-content-center fw-bold btn btn-primary btn-block mb-4">
+                      <a style="color: white; text-decoration:none;" href="#" id="login">Login</a>
+                    </button>  
+                  </div>
+                  
+                  <div class="d-flex align-items-center justify-content-center pb-4">
+                    <p class="mb-0 me-2">Don't have an account?</p>
+                    <a class= "fw-bold" href="views\register.ejs">Join NOW!</a>
+                  </div>
+
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </section>
+    
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="./js/login.js"></script>
 </body>
 </html>
