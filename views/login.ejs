@@ -15,20 +15,21 @@
             <div class="centered">
               <div class="card">
                 <div class="card-body shadow py-5 px-md-5">
+                  <p class="text-center" style=<%= auth ? 'color:green;' : 'color:red' %>><%= msg %></p>
                   <h1 class="text-center text-primary fw-bolder">Hello Again!</h1>
                   <hr>
                   <p>Log into your account and get a ton access of references</p>
-                  <form>
+                  <form action="/auth/login" method="post">
                     <!--Email input -->
                     <div class="form-group">
                       <label class="fw-bold form-label" for="form3Example3">Email address</label>
-                      <input type="email" id="email" class="form-control" placeholder="Input Email Address" />
+                      <input type="email" id="email" name="email" class="form-control" required placeholder="Input Email Address" />
                     </div>
 
                     <!-- Password input  -->
                     <div class="form-group">
                       <label class="fw-bold form-label" for="form3Example4">Password</label>
-                      <input type="password" id="password" class="form-control" placeholder="Input password"/>
+                      <input type="password" id="password" name="password" class="form-control" required placeholder="Input password"/>
                     </div> 
                       
     
@@ -42,14 +43,14 @@
     
                     <!-- Submit button -->
                   <div class="d-grid gap-5 col-5 mx-auto">
-                    <button type="button" class="justify-content-center fw-bold btn btn-primary btn-block mb-4">
-                      <a style="color: white; text-decoration:none;" href="#" id="login">Login</a>
+                    <button type="submit" class="justify-content-center fw-bold btn btn-primary btn-block mb-4">
+                      Login
                     </button>  
                   </div>
                   
                   <div class="d-flex align-items-center justify-content-center pb-4">
                     <p class="mb-0 me-2">Don't have an account?</p>
-                    <a class= "fw-bold" href="views\register.ejs">Join NOW!</a>
+                    <a class= "fw-bold" href="/register">Join NOW!</a>
                   </div>
 
                   </form>
@@ -64,5 +65,7 @@
     
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="./js/login.js"></script>
+
+    <script src="/reload/reload.js"></script>
 </body>
 </html>

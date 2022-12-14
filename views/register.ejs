@@ -17,56 +17,59 @@
             <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
             <h3>Welcome</h3>
             <p>In a moment you will enjoy the reference you need!</p>
-            <input type="submit" name="" href="login.ejs" value="Login"/><br/>
+            <a href="/"><button style="border: none; padding: 0.5rem 1rem;">Login</button></a><br/>
         </div>
         <div class="col-md-9 register-right">
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <h3 class="register-heading">Create New Account</h3>
-                        <div class="row register-form">
-                            <div class="col-md-6">
-                                <div class="form-group" style="margin-bottom: 2%;">
-                                  <input type="text" class="form-control" placeholder="First Name *" value="" />
-                                </div>
-                                <div class="form-group" style="margin-bottom: 2%;">
-                                    <input type="text" class="form-control" placeholder="Last Name *" value="" />
-                                </div>
-                                <div class="form-group" style="margin-bottom: 2%;">
-                                    <input type="password" class="form-control" placeholder="Password *" value="" />
-                                </div>
-                                <div class="form-group" style="margin-bottom: 5%;">
-                                    <div class="maxl">
-                                        <label class="radio inline padding-right-10"> 
-                                            <input type="radio" name="gender" value="male" checked>
-                                            <span> Male </span> 
-                                        </label>
-                                        <label class="radio inline"> 
-                                            <input type="radio" name="gender" value="female">
-                                            <span>Female </span> 
-                                        </label>
+                            <form action="/auth/register" method="post">
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group" style="margin-bottom: 2%;">
+                                            <input type="text" class="form-control" placeholder="First Name *" />
+                                        </div>
+                                        <div class="form-group" style="margin-bottom: 2%;">
+                                            <input type="text" class="form-control" placeholder="Last Name *"/>
+                                        </div>
+                                        <div class="form-group" style="margin-bottom: 2%;">
+                                            <input type="password" name="password" required class="form-control" placeholder="Password *"/>
+                                        </div>
+                                        <div class="form-group" style="margin-bottom: 5%;">
+                                            <div class="maxl">
+                                                <label class="radio inline padding-right-10"> 
+                                                    <input type="radio" value="male" checked>
+                                                    <span> Male </span> 
+                                                </label>
+                                                <label class="radio inline"> 
+                                                    <input type="radio" value="female">
+                                                    <span>Female </span> 
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btnRegister">Register</button>
                                     </div>
-                                </div>
-                                <input type="submit" class="btnRegister"  href="login.ejs" value="Register"/>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group" style="margin-bottom: 2%;">
-                                    <input type="email" class="form-control" placeholder="Your Email *" value="" />
-                                </div>
-                                <div class="form-group" style="margin-bottom: 2%;">
-                                    <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" value="" />
-                                </div>
-                                <div class="form-group" style="margin-bottom: 2%;">
-                                    <input type="password" class="form-control"  placeholder="Confirm Password *" value="" />
-                                </div>
-                                
-                            </div>
-                        </div>     
+                                    <div class="col-md-6">
+                                        <div class="form-group" style="margin-bottom: 2%;">
+                                            <input type="email" name='email' required class="form-control" placeholder="Your Email *"/>
+                                        </div>
+                                        <div class="form-group" style="margin-bottom: 2%;">
+                                            <input type="text" minlength="10" maxlength="10" class="form-control" placeholder="Your Phone *"/>
+                                        </div>
+                                        <div class="form-group" style="margin-bottom: 2%;">
+                                            <input type="password" class="form-control"  placeholder="Confirm Password *"/>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-<script src="./js/register.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="./js/register.js"></script>
+
+    <script src="/reload/reload.js"></script>
 </body>
 </html>
