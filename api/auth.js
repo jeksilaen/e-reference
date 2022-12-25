@@ -57,4 +57,60 @@ router.post('/register', (req, res) => {
 })
 
 
+//create
+router.post('/create',(req,res)=>{
+  let data={
+    title:req.body.title,
+    summary:req.body.summary,
+    date:req.body.date
+  };
+  try{
+      const reference = Users.findOneAndUpdate(
+        {email:req.body.email},
+        {
+          $push:{
+            references:data,
+          },
+        },
+        (err, doc) =>{
+          if (!err) {
+            console.log("Reference added for user with email "+req.body.email);
+            res.render('home', {msg : "references updated!", auth : true})
+          } else {
+            console.log(err);
+          }
+        }
+      );
+  }catch(err){
+    res.render('home', {msg : "gagal", auth : false})
+  }
+})
+
+//delete
+router.post('/delete',(req, res)=>{
+  console.log("doing delete")
+	try{
+    const reference = Users.findOneAndUpdate(
+      {email:req.body.email},
+      {
+        $pull:{
+          references:{title:req.body.title},
+        },
+      },
+      (err, doc) =>{
+        if (!err) {
+          console.log("deleting reference "+req.body.title);
+          res.render('home', {msg : "references deleted!", auth : true})
+        } else {
+          console.log(err);
+        }
+      }
+    );
+}catch(err){
+  console.log(err)
+  res.render('home', {msg : "gagal", auth : false})
+}
+
+})
+
 module.exports = router; 
