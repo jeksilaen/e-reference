@@ -4,7 +4,6 @@ const router = express.Router();
 const Users = require('../models/users')
 
 router.post('/login', (req, res) => {
-  console.log(req.body);
   Users.findOne({email:req.body.email}, (err, docs) => {
     if (!err) {
         if (docs) {
@@ -15,7 +14,7 @@ router.post('/login', (req, res) => {
             }
             else {
                 if (result) {
-                  res.render('home')
+                  res.render('home', {msg: '', auth : true, email : req.body.email})
                 }else{
                   res.render('login', {msg : "Password salah!", auth : false})
                 }
@@ -44,7 +43,7 @@ router.post('/register', (req, res) => {
               }, (err, doc) =>{
                 if (!err) {
                   console.log("Created new user.");
-                  res.render('login', {msg : "Akun berhasil dibuat!", auth : true})
+                  res.render('login', {msg : "Akun berhasil dibuat!", auth : true, email : req.body.email})
                 } else {
                   console.log(err);
                 }
@@ -65,7 +64,7 @@ router.post('/create',(req,res)=>{
     date:req.body.date
   };
   try{
-      const reference = Users.findOneAndUpdate(
+      Users.findOneAndUpdate(
         {email:req.body.email},
         {
           $push:{
@@ -75,9 +74,10 @@ router.post('/create',(req,res)=>{
         (err, doc) =>{
           if (!err) {
             console.log("Reference added for user with email "+req.body.email);
-            res.render('home', {msg : "references updated!", auth : true})
+            res.render('home', {msg : "References updated!", auth : true, email : req.body.email})
           } else {
             console.log(err);
+            res.render('home', {msg : "Update reference failed!", email : req.body.email})
           }
         }
       );

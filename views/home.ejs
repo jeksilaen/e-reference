@@ -17,16 +17,15 @@
     </head>
     
     <body class="bg-home" id="page-home" >
-        <!-- Navigation -->
             <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top py-3" id="homeNav">
                 <div class="container px-3 px-lg-3">
                     <img src="img/logo.png" width="50px" alt="">
-                    <a class="navbar-brand fw-bolder px-2" href="/home" style="color: #f4623a;">Rojak Reference</a>
+                    <a class="navbar-brand fw-bolder px-2" href="#" style="color: #f4623a;">Rojak Reference</a>
                     <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ms-auto mt-2 mb-0">
                             <li class=" nav-item py-0 px-2"><a class="nav-link" href="#category" style="color: #f4623a;">Categories</a></li>
-                            <li class=" nav-item py-0 px-2"><a class="nav-link" href="#services" style="color: #f4623a;">Our Services</a></li>
+                            <li class=" nav-item py-0 px-2"><a class="nav-link" href="#services" style="color: #f4623a;">Our Services</a></li><li class=" nav-item py-0 px-2"><a class="nav-link" href='/references?email=<%= email %>' style="color: #f4623a;">My References</a></li>
                         </ul>
                     </div>
                 </div>
@@ -35,11 +34,7 @@
     </div>
     <div id="page">
         <!-- Searchbar -->
-        <h4 class="text-center pt-6">Search for reference that you need here</h4>
-        <div class="input-group me-0 mt-5 mb-0 centered">
-            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-            <button type="button" class="btn btn-outline-primary">Search</button>
-        </div>
+        <h4 class="text-center pt-6" style=<%= auth ? 'color:green;' : 'color:red' %>><%= msg %> </h4>
         <!-- Carrousel Buku -->
         <div class="container">
             <section class="page-section pt-4 px-5 bg-body">
@@ -213,6 +208,13 @@
                         <a class="btn btn-light btn-l btnTry btn-xl" href="/login">Try Now!</a>
                     </div>
                 </div>
+                <form action="/auth/create" method="post">
+                    <input type="text" name="title">
+                    <input type="text" name="summary">
+                    <input type="date" name="date">
+                    <input type="email" hidden name="email" value=<%= email %>>
+                    <button type="submit">Create book</button>
+                </form>
             </div>
         </section>
         <!-- Footer-->
