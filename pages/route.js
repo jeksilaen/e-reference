@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.render('home', {msg : "", auth:false})
+    res.render('login', {msg: '', auth: false});
 })
 
 router.get('/register', (req, res) => {
