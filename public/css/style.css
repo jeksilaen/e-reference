@@ -11679,3 +11679,31 @@ body{
 .hidden-arrow{
   display: none;
 }
+
+body {
+  background: #f5f5f5;
+  font-size: 14px;
+}
+
+.table-wrapper {
+  background:#fff;
+  padding: 30px 35px;
+  margin: 30px 0;
+  border-radius: 1px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.247);
+}
+
+.table-title {
+  padding-bottom: 15px;
+  background: linear-gradient(40deg, #f4623a, #e68831)!important;
+  color: #fff;
+  padding: 16px 30px;
+  margin: -20px -25px 10px;
+  border-radius: 1px 1px 0 0;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.247);
+}
+
+.table-title h2{
+  margin: 5px 0 0;
+  font-size: 24px;
+}
